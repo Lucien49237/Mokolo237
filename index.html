@@ -36,6 +36,6 @@ $("mine").onclick=async()=>{if(!session){modal("authModal",true);return}view="mi
 $("all").onclick=()=>{view="all";render()};
 ["search","city","category"].forEach(id=>$(id).addEventListener(id==="search"?"input":"change",render));
 document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>modal(b.dataset.close,false));
-if(db){db.auth.getSession().then(async({data})=>{session=data.session;setLang();await load()});db.auth.onAuthStateChange((_event,s)=>{session=s;setLang()})}else{setLang();notice(tr().failed)}
+if(db){db.rpc("record_page_view").then(({error})=>{if(error)console.warn("Anonymous pageview tracking unavailable",error.message)});db.auth.getSession().then(async({data})=>{session=data.session;setLang();await load()});db.auth.onAuthStateChange((_event,s)=>{session=s;setLang()})}else{setLang();notice(tr().failed)}
 if("serviceWorker"in navigator)navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister()));
 </script></body></html>
