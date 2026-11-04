@@ -1,0 +1,19 @@
+{
+  "name": "Mokolo237 – Petites annonces au Cameroun",
+  "short_name": "Mokolo237",
+  "description": "Petites annonces gratuites à Yaoundé et Douala",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f8f5",
+  "theme_color": "#087f5b",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
